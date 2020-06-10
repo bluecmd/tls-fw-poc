@@ -17,7 +17,7 @@ the end-to-end.
 ## Why?
 
 It seems like little work has been done into providing options to do
-authentication close to the edge will still preserving secrecy of the
+authentication close to the edge while still preserving secrecy of the
 communication.
 
 I wanted to prove to myself that my idea worked, and it does.
