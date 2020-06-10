@@ -20,7 +20,8 @@ It seems like little work has been done into providing options to do
 authentication close to the edge while still preserving secrecy of the
 communication.
 
-I wanted to prove to myself that my idea worked, and it does.
+I wanted to prove to myself that my idea worked, and it does for TLSv1.2.
+For TLSv1.3 this does not work.
 
 ## Usage
 
@@ -54,3 +55,12 @@ Apparently according to some folks there is already something called
 terminated and re-initiated by the proxy.
 
 The solution I present here is thus, comparatively, truly transparent.
+
+## Issues?
+
+ * TLSv1.3 encrypts everything from ServerHello, so for 1.3 and later this
+   doesn't work.
+ * The PoC only checks for the Certificate handshake record on the client side,
+   not that the server is configured to authenticate it - so forcefully sending
+   it would likely successfully set up the connection (even though it would break
+   the RFC and strict servers should close the connection if that happens).
